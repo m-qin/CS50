@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ category[0]|upper}}{{category[1:] }} Quiz
+{% endblock %}
+
+{% block main %}
+    <h2>{{ category[0]|upper}}{{category[1:] }} Quiz</h2>
+
+    <div class="card">
+        <div class="card-body">
+            {{ word }}
+        </div>
+    </div>
+    <br><br>
+
+    <form action="/quiz/{{word}}/{{category}}/{{language}}" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="answer" placeholder="Answer in {{ language }}" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Check my answer!</button>
+    </form>
+{% endblock %}

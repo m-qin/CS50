@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About ShuangLugha
+{% endblock %}
+
+{% block main %}
+    {% if alert %}
+        <div class="alert alert-primary" role="alert">
+            {{alert}}
+        </div>
+    {% endif %}
+
+    <h1>Learn Chinese and Swahili with ShuangLugha</h1>
+    <img src="static/Chinanationalflag.png" width="300" height="200">
+    <img src="static/Tanzanianationalflag.png" width="300" height="200">
+    <br><br>
+    <p>ShuangLugha is a website that allows users - primarily kids - who speak English to learn Chinese and/or Swahili!</p>
+    <p>Users can access six fun, introductory lessons on YouTube, with topics ranging from greetings to colors to food.
+    They can practice what they've learned with flashcards on the "Practice" tab, or quiz themselves on their progress
+    through the "Quizzes" tab. Users may also track their progress, erase their quiz history, and/or change their password.
+    If learning both Chinese and Swahili, users should make a separate account for each language.</p>
+
+    <img src="static/AsteriaMichelle.jpg" width="300" height="225">
+    <br><br>
+    <p>ShuangLugha was created by Asteria Chilambo and Michelle Qin, who are taking CS50 in their first semester at Harvard College.
+    They both love languages (in addition to movies and traveling :), so the idea of ShuangLugha came to them naturally.
+    Shuang (双) is a Chinese word meaning "double", and Lugha is a Swahili word meaning "language", so ShuangLugha is a hybrid
+    word meaning "double language" or, loosely, "bilingual". We want our website's users to become bi- (or tri-) lingual!</p>
+{% endblock %}

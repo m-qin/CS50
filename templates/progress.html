@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Progress Tracker
+{% endblock %}
+
+{% block main %}
+    <h1>Progress Tracker</h1>
+
+    <h3 style="color: #32cd32">Lessons Watched</h3>
+    {% for category in progress %}
+        {% if progress[category] == 'TRUE' %}
+            <p>{{ category }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="color: #dc143c">Lessons Not Watched</h3>
+    {% for category in progress %}
+        {% if progress[category] == 'FALSE' %}
+            <p>{{ category }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <h3>Quizzes</h3>
+    <table class="table">
+        <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Number of Questions Correct</th>
+            <th scope="col">Number of Questions Total</th>
+            <th scope="col">Percent Correct</th>
+        </tr>
+        <tr>
+            <td>Greetings and Phrases</td>
+            <td>
+                {% if "greetings_correct" in scores %}
+                    {{scores["greetings_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "greetings_correct" in scores %}
+                    {{scores["greetings_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "greetings_correct" in scores %}
+                    {{100.0*scores["greetings_correct"]/scores["greetings_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Family</td>
+            <td>
+                {% if "family_correct" in scores %}
+                    {{scores["family_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "family_correct" in scores %}
+                    {{scores["family_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "family_correct" in scores %}
+                    {{100.0*scores["family_correct"]/scores["family_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Numbers</td>
+            <td>
+                {% if "numbers_correct" in scores %}
+                    {{scores["numbers_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "numbers_correct" in scores %}
+                    {{scores["numbers_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "numbers_correct" in scores %}
+                    {{100.0*scores["numbers_correct"]/scores["numbers_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Colors</td>
+            <td>
+                {% if "colors_correct" in scores %}
+                    {{scores["colors_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "colors_correct" in scores %}
+                    {{scores["colors_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "colors_correct" in scores %}
+                    {{100.0*scores["colors_correct"]/scores["colors_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Food</td>
+            <td>
+                {% if "food_correct" in scores %}
+                    {{scores["food_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "food_correct" in scores %}
+                    {{scores["food_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "food_correct" in scores %}
+                    {{100.0*scores["food_correct"]/scores["food_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Animals</td>
+            <td>
+                {% if "animals_correct" in scores %}
+                    {{scores["animals_correct"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "animals_correct" in scores %}
+                    {{scores["animals_total"]}}
+                {% endif %}
+            </td>
+            <td>
+                {% if "animals_correct" in scores %}
+                    {{100.0*scores["animals_correct"]/scores["animals_total"]}}%
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+{% endblock %}

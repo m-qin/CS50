@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Answer
+{% endblock %}
+
+{% block main %}
+    {% if alert %}
+        <div class="alert alert-success" role="alert">Correct</div>
+    {% else %}
+        <div class="alert alert-danger" role="alert">Incorrect</div>
+    {% endif %}
+
+    <div class="card">
+        Correct Answer:
+        <br>{{ translation }}
+    </div>
+
+    <br><br>
+    <a class="btn btn-primary btn-flashcard" href="/next_question/{{category}}/{{language}}" role="button">Next Question in {{ category[0]|upper}}{{category[1:] }}</a>
+
+    <footer class="text-center">
+        Powered by <a href="http://translate.yandex.com">Yandex.Translate</a>
+    </footer>-
+{% endblock %}

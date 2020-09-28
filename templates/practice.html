@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Practice
+{% endblock %}
+
+{% block main %}
+    <!--<div class="card" style="width: 18rem;">-->
+    <!--    <img class="card-img-top" src="2320784062_183d28ef22_b.jpg" alt="Colors">-->
+    <!--    <div class="card-body">-->
+    <!--        <a href="#" class="btn btn-primary">Practice with Flashcards</a>-->
+    <!--    </div>-->
+    <!--</div>-->
+
+    <div class="card-deck">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Greetings and Phrases</p>
+          <img class="card-img-top" src="static/greetings.jpg" alt="Greetings">
+            <div class="card-body">
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="greetings">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Family</p>
+          <img class="card-img-top" src="static/family.jpeg" alt="Family">
+            <div class="card-body">
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="family">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Numbers</p>
+          <img class="card-img-top" src="static/numbers.jpg" alt="Numbers">
+            <div class="card-body">
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="numbers">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="card-deck">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Colors</p>
+          <img class="card-img-top" src="static/colors.jpg" alt="Colors">
+            <div class="card-body">
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="colors">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Food</p>
+          <img class="card-img-top" src="static/food.png" alt="Food">
+            <div class="card-body">
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="food">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <p class="card-text">Animals</p>
+          <img class="card-img-top" src="static/animals.jpg" alt="Animals">
+            <div class="card-body">
+                <!--<a href="#" class="btn btn-primary">Practice with Flashcards</a>-->
+                <!--<input type="button" class="btn btn-primary" value="Practice with Flashcards" onclick="flashcard()">-->
+                <form action="/practice" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="animals">Practice with Flashcards</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

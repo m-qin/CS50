@@ -1,0 +1,95 @@
+a, p, h1
+{
+    font-family:"Optima", sans-serif;
+}
+h3
+{
+    font-family:"Optima", sans-serif;
+    color: #0000cd;
+}
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .purple
+{
+    color: #e9d8f2;
+}
+nav .navbar-brand .pink
+{
+    color: #ffc0cb;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.btn-primary
+{
+    font-family:"Optima", sans-serif;
+    color: #ffffff;
+    font-size: 18px;
+}
+.btn-small
+{
+    color: #ffffff;
+    font-size: 16px;
+}
+.btn-flashcard
+{
+    font-size: 16px;
+    color: #000000;
+    background-color: #DEF389;
+    display: inline-block;
+}
+
+.card
+{
+    font-family:"Optima", sans-serif;
+    font-size: 24px;
+    width: 18rem;
+    display: inline-block;
+}
+.card-body
+{
+    background-color: #7fffd4;
+}
+.card-text
+{
+    font-family:"Optima", sans-serif;
+    font-size: 24px;
+}
+.quiz-body
+{
+    background-color: #c8a2c8;
+}
+
+.alert
+{
+    height: 6rem;
+    font-size: 40px;
+}

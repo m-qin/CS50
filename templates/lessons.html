@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User Homepage
+{% endblock %}
+
+{% block main %}
+    <h1>Lessons</h1>
+    <img src="static/kidslesson.jpeg">
+    <!--<a class="btn btn-primary" href="{{greetings}}" role="button">Lesson One: Greetings and Phrases</a>-->
+    <!--<a class="btn btn-primary" href="{{family}}" role="button">Lesson Two: Family</a>-->
+    <!--<a class="btn btn-primary" href="{{numbers}}" role="button">Lesson Three: Numbers</a>-->
+    <!--<a class="btn btn-primary" href="{{colors}}" role="button">Lesson Four: Colors</a>-->
+    <!--<a class="btn btn-primary" href="{{food}}" role="button">Lesson Five: Food</a>-->
+    <!--<a class="btn btn-primary btn-lg btn-block" href="{{animals}}" role="button">Lesson Six: Animals</a>-->
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="greetings">Lesson One: Greetings and Phrases</button>
+    </form><br>
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="family">Lesson Two: Family</button>
+    </form><br>
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="numbers">Lesson Three: Numbers</button>
+    </form><br>
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="colors">Lesson Four: Colors</button>
+    </form><br>
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="food">Lesson Five: Food</button>
+    </form><br>
+    <form action="/lessons" method="post">
+        <button class="btn btn-primary btn-block" name="category" type="submit" value="animals">Lesson Six: Animals</button>
+    </form>
+{% endblock %}

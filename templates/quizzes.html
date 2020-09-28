@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quizzes
+{% endblock %}
+
+{% block main %}
+    <div class="card-deck">
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Greetings and Phrases</p>
+          <img class="card-img-top" src="static/greetings.jpg" alt="Greetings">
+            <div class="card-body quiz-body">
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="greetings">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Family</p>
+          <img class="card-img-top" src="static/family.jpeg" alt="Family">
+            <div class="card-body quiz-body">
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="family">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Numbers</p>
+          <img class="card-img-top" src="static/numbers.jpg" alt="Numbers">
+            <div class="card-body quiz-body">
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="numbers">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="card-deck">
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Colors</p>
+          <img class="card-img-top" src="static/colors.jpg" alt="Colors">
+            <div class="card-body quiz-body">
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="colors">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Food</p>
+          <img class="card-img-top" src="static/food.png" alt="Food">
+            <div class="card-body quiz-body">
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="food">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+      <div class="card bg-light">
+        <div class="card-body quiz-body text-center">
+          <p class="card-text">Animals</p>
+          <img class="card-img-top" src="static/animals.jpg" alt="Animals">
+            <div class="card-body quiz-body">
+                <!--<a href="#" class="btn btn-primary">Practice with Flashcards</a>-->
+                <!--<input type="button" class="btn btn-primary" value="Practice with Flashcards" onclick="flashcard()">-->
+                <form action="/quizzes" method="post">
+                  <button class="btn btn-outline-dark" name="category" type="submit" value="animals">Vocabulary Quiz</button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

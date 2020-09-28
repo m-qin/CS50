@@ -1,0 +1,91 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 # Design Document for ShuangLugha\
+Asteria Chilambo and Michelle Qin\
+\
+## General Overview\
+"application.py" is the Python file using the Flask framework (similar to CS50 Finance) that houses all of\
+ShuangLugha's main functions. It opens various html files (e.g., "lessons.html") housed in the "templates" folder\
+and often references the SQL database "final_project.db" (discussed below) and "helpers.py", which includes\
+the helper functions apology() and login_required(). The "static" folder stores all images\
+used in ShuangLugha (which we got from Google Images by using the filter "Labeled for noncommercial use" - see bottom of this document),\
+as well as "styles.css", which styles all of our webpages.\
+\
+ShuangLugha allows English-speaking users to learn either beginning Chinese or Swahili vocabulary. (If we had more time, one of our future directions\
+would be to use Yandex.Translate's webpage widget to translate our website into other languages to allow more language-learning\
+combinations.) Our website focuses on vocabulary rather than grammar, because that was more feasible to code. ShuangLugha features\
+six categories of vocab: greetings, family, numbers, colors, food, and animals.\
+\
+## final_project.db\
+This database contains eight tables: "users", "scores", and one table for each of the six categories ("greetings", "family", "numbers",\
+"colors", "food", and "animals").\
+"users" tracks any ShuangLugha user's username, password hash, target language, and whether he/she has clicked on each of the six lessons offered.\
+"scores" tracks each ShuangLugha user's number of questions answered and number of questions correct for each category. Default values are 0, of course.\
+Finally, the remaining six tables are vocabulary lists. We tried to maximize efficiency and design by hard-coding only English lists of\
+greetings, colors, etc., and then using the Yandex.Translate API and a SQL-querying Python file (now deleted) to fill in the "Swahili" and "Chinese"\
+columns of these tables. Of course, we checked the translations to make sure they were accurate, and we gave credit to Yandex on our website.\
+\
+## Register, Log In, and Log Out\
+Very similar to CS50 Finance implementation.\
+\
+## About (Homepage)\
+We chose "About" to be the homepage of ShuangLugha because it explains how to use the website and is the only webpage\
+besides "Register", "Log In", and "Log Out" that doesn't require the user to log in. (Even "Lessons" requires a log-in\
+because ShuangLugha needs to know which language the user is studying in order to send him/her to the correct videos.)\
+The implementation of "About" was very straightforward: a simple render_template("index.html").\
+\
+## Lessons\
+"Lessons" contains six links, formatted as Bootstrap buttons, to YouTube videos about the user's chosen target language.\
+We implemented this as a form named "category", whose value gets posted to "/lessons". The function lessons() in application.py\
+then takes this value, updates the user's progress (i.e., as having watched that category's video) in the users database,\
+and redirects to the appropriate YouTube video based on the target language (hence the required log-in) and category chosen.\
+\
+## Practice\
+register() in application.py renders "practice.html", which consists of several Bootstrap cards each containing a Bootstrap button\
+that the user can click to post a value for "category" back to register() in application.py; register() then randomly chooses an English\
+word from the SQL database of the appropriate category and opens "flashcard.html", passing in the random word, the language, and the category.\
+These parameters are sent to "flashcard.html" because the user can flip the flashcard to see the target-language translation,\
+which the computer generates from the SQL database, or get a new flashcard in the same category. These two features are encoded\
+using Bootstrap buttons and two additional functions in application.py, new_card() and flip_card(), which both take in parameters.\
+We cite Yandex.Translate at the bottom of this page because we'd used Yandex to fill in the Swahili and Chinese columns of our vocabulary\
+SQL databases - you can see this in our supplemental file 'translator.py', which we used to do this.\
+A future direction for this webpage would be to allow the user to see the Swahili/Chinese flashcard first and then flip to English.\
+\
+## Quizzes\
+Implemented similarly to "Practice", except user input is taken and tracked. "quizzes.html" posts the user's chosen category to\
+quizzes() in application.py, which pulls a random English word from this category's database and renders an appropriate\
+"quiz.html" page. "quiz.html" then posts the user's response to quiz() in application.py, which checks the user's answer\
+against the "Swahili"/"Chinese" column of the SQL database, updates the user's row in the "scores" SQL database, and\
+renders "answer.html", which displays the correct answer, a Bootstrap alert exclaiming whether the user was correct or incorrect,\
+and a Bootstrap button allowing the user to see another randomly generated word to be quizzed on (next_question() in application.py handles this.)\
+\
+## Progress Tracker\
+This page renders "progress.html", which displays which lessons the user has watched (taken from the "users" SQL database)\
+and, in a Bootstrap table, the user's scores on quizzes so far (taken from "scores" SQL database). To avoid dividing by 0,\
+which would happen if the user has answered 0 questions total of a category, we delete any such category's "number of correct\
+answers" and "number of total answers" columns from his/her scores.\
+\
+## Settings\
+In "Settings", we allow a user to change his/her password or clear all of his/her quiz history. The former action involves a\
+form that posts to the settings() function in application.py and functions similarly to register(), ultimately redirecting to\
+the homepage and displaying a Bootstrap alert if successful. The latter uses a button that redirects to the function clear()\
+in application.py, which deletes the user's row in the "scores" SQL database and inserts a new, blank row for him/her, with\
+default values of 0 for all the "number of questions correct" and "number of questions total" columns.\
+\
+### Sources of images\
+https://cdn.unifiedcommerce.com/content/product/large/79346037759.jpg\
+https://www.publicdomainpictures.net/pictures/160000/nahled/funny-cartoon.jpg\
+https://upload.wikimedia.org/wikipedia/commons/2/2e/Flag_of_China.png\
+https://live.staticflickr.com/2418/2320784062_183d28ef22_b.jpg\
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStkQYOE1bICtIa6c_Ar7ifOmO-C03x60l6YMDhPJ-C3OOKQINm0A&s\
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtQOBrCaiAwvWzSCc7zzaqe7awy8e1W_zRD8SimhCanMrgQGkm&s\
+https://small.pngfans.com/20190712/hs/property-loans-png-mortgage-loan-clipart-24cc7454d80d4ecb.jpg\
+https://cdn.pixabay.com/photo/2017/09/24/18/35/kids-2782704_960_720.jpg\
+https://www.publicdomainpictures.net/pictures/40000/nahled/numbers-colorful-clip-art.jpg\
+http://res.publicdomainfiles.com/pdf_view/59/13533868214573.png\
+}

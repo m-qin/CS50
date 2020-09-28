@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ category[0]|upper}}{{category[1:] }} Flashcards
+{% endblock %}
+
+{% block main %}
+    <div class="card">
+        <div class="card-body">
+            <br>
+            {{ card }}
+            <br><br><br>
+            <a class="btn btn-primary btn-flashcard" href="/flip_card/{{card}}/{{category}}/{{language}}" role="button">Flip to see {{ language }}</a>
+            <a class="btn btn-primary btn-flashcard" href="/new_card/{{category}}/{{language}}" role="button">New flashcard</a>
+        </div>
+    </div>
+
+    <footer class="text-center">
+        Powered by <a href="http://translate.yandex.com">Yandex.Translate</a>
+    </footer>-
+{% endblock %}
